@@ -1,13 +1,12 @@
-import type { GetServerSideProps } from 'next';
+import data from '__mocks__/data/data.json';
 
+import CardCity from '@/components/CardCity';
 import { Meta } from '@/layouts/Meta';
 import type {
   AwesomePlaceDataResponse,
   CitiesInterface,
 } from '@/models/awesome-place.model';
 import { Main } from '@/templates/Main';
-
-import { getAwesomePlaceList } from '../../lib/awesome-place-data';
 
 const Index = (props: AwesomePlaceDataResponse) => {
   console.log(props.cities?.length);
@@ -21,21 +20,17 @@ const Index = (props: AwesomePlaceDataResponse) => {
         />
       }
     >
-      <ul className="">
+      <ul className="w-100 container mx-auto flex flex-wrap gap-3 lg:w-4/5">
         {props?.cities?.slice(0, 10).map((city: CitiesInterface) => (
-          <li key={city.name}>
-            <article>{city.name}</article>
-          </li>
+          <CardCity key={city.slug} city={city}></CardCity>
         ))}
       </ul>
     </Main>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const data: AwesomePlaceDataResponse = await getAwesomePlaceList();
-  console.log(data.cities?.length);
-  return { props: { data } };
-};
+export async function getServerSideProps() {
+  return { props: { ...data } };
+}
 
 export default Index;
