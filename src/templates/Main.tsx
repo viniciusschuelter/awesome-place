@@ -8,9 +8,14 @@ type IMainProps = {
   children: ReactNode;
 };
 
+const colorsStats =
+  'hidden bg-green-500 bg-lime-500 bg-yellow-500 bg-amber-500 bg-orange-500 bg-red-500 text-green-500 text-lime-500 text-yellow-500 text-amber-500 text-orange-500 text-red-500';
+
 const Main = (props: IMainProps) => (
   <div className="w-full px-1 text-gray-700 antialiased">
     {props.meta}
+
+    <div className={colorsStats} />
 
     <div className="mx-auto">
       <div className="border-b border-gray-300">
