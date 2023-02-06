@@ -48,7 +48,7 @@ const CardStats = (props: { city: CitiesInterface }) => {
     <>
       {statsValues.map((stats: StatsValuesInterface) => (
         <div key={stats.key} className="mb-2 flex">
-          <div className="w-24 text-sm font-bold leading-tight dark:text-white">
+          <div className="w-24 text-sm font-bold leading-tight text-white">
             {stats.label}
           </div>
           <div className="h-4 w-full rounded-full bg-gray-200">
