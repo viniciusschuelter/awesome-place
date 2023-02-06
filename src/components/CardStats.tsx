@@ -59,7 +59,6 @@ const CardStats = (props: { city: CitiesInterface }) => {
           </div>
         </div>
       ))}
-      ;
     </>
   );
 };
