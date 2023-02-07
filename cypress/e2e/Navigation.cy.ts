@@ -9,7 +9,7 @@ describe('Navigation', () => {
         name: 'Boilerplate code for your Nextjs project with Tailwind CSS',
       });
 
-      // Find a link containing "About" text and click it
+      // Find a link containing "Cost" text and click it
       cy.findByRole('link', { name: 'About' }).click();
 
       // The new url should include "/about"
@@ -33,13 +33,13 @@ describe('Navigation', () => {
       cy.percySnapshot('Homepage');
     });
 
-    it('should take screenshot of the About page', () => {
+    it('should take screenshot of the Cost page', () => {
       cy.visit('/about');
 
       // Wait until the page is displayed
       cy.findByRole('link', { name: 'About' });
 
-      cy.percySnapshot('About');
+      cy.percySnapshot('Cost');
     });
   });
 });

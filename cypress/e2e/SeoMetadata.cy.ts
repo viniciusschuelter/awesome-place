@@ -12,13 +12,13 @@ describe('Seo metadata', () => {
         .should('not.be.empty');
     });
 
-    it('should render SEO metadata on About page', () => {
+    it('should render SEO metadata on Cost page', () => {
       cy.visit('/about');
 
-      // The About page should have a page title
+      // The Cost page should have a page title
       cy.title().should('not.be.empty');
 
-      // The About page should also contain a meta description for SEO
+      // The Cost page should also contain a meta description for SEO
       cy.get('head meta[name="description"]')
         .invoke('attr', 'content')
         .should('not.be.empty');

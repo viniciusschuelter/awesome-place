@@ -32,31 +32,39 @@ const Main = (props: IMainProps) => (
                 href="/"
                 className="border-none text-gray-700 hover:text-gray-900"
               >
-                Home
+                Top Overall
               </Link>
             </li>
             <li className="mr-6">
               <Link
-                href="/about/"
+                href="/cost/"
                 className="border-none text-gray-700 hover:text-gray-900"
               >
-                About
+                Top Cost
               </Link>
             </li>
             <li className="mr-6">
-              <a
+              <Link
+                href="/internet/"
                 className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
               >
-                GitHub
-              </a>
+                Top Internet
+              </Link>
             </li>
             <li className="mr-6">
               <Link
-                href="/blog/"
+                href="/fun/"
                 className="border-none text-gray-700 hover:text-gray-900"
               >
-                Blog
+                Top Fun
+              </Link>
+            </li>
+            <li className="mr-6">
+              <Link
+                href="/safety/"
+                className="border-none text-gray-700 hover:text-gray-900"
+              >
+                Top Safety
               </Link>
             </li>
           </ul>
@@ -72,7 +80,7 @@ const Main = (props: IMainProps) => (
          * PLEASE READ THIS SECTION
          * I'm an indie maker with limited resources and funds, I'll really appreciate if you could have a link to my website.
          * The link doesn't need to appear on every pages, one link on one page is enough.
-         * For example, in the `About` page. Thank you for your support, it'll mean a lot to me.
+         * For example, in the `Cost` page. Thank you for your support, it'll mean a lot to me.
          */}
       </div>
     </div>

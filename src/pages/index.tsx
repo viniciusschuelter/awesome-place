@@ -9,8 +9,6 @@ import type {
 import { Main } from '@/templates/Main';
 
 const Index = (props: AwesomePlaceDataResponse) => {
-  console.log(props.cities?.length);
-
   return (
     <Main
       meta={
