@@ -8,7 +8,7 @@ import Cost from '@/pages/cost';
 describe('Cost page', () => {
   describe('Render method', () => {
     it('should have two paragraphs of `Lorem ipsum`', () => {
-      render(<Cost />);
+      render(<Cost cities={[]} slugs={[]} temperaturesC={{}} />);
 
       const paragraph = screen.getAllByText(/Lorem ipsum/);
 
