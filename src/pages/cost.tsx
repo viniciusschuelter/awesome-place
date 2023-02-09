@@ -18,7 +18,7 @@ const Cost = (props: AwesomePlaceDataResponse) => {
         />
       }
     >
-      <ul className="w-100 container mx-auto flex flex-wrap gap-3 lg:w-4/5">
+      <ul className="container mx-auto flex w-full flex-wrap gap-3 lg:w-4/5">
         {props?.cities
           ?.sort((a, b) => b.cost_score - a.cost_score)
           .slice(0, 10)
