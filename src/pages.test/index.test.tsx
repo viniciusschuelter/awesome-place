@@ -8,7 +8,9 @@ import Index from '@/pages/index';
 describe('Index page', () => {
   describe('Render method', () => {
     it('should have h1 tag', () => {
-      render(<Index cities={[]} slugs={[]} temperaturesC={{}} />);
+      render(
+        <Index overall={[]} cost={[]} internet={[]} fun={[]} safety={[]} />
+      );
 
       const heading = screen.getByRole('heading', {
         name: /Boilerplate code/,

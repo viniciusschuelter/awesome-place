@@ -6,7 +6,7 @@ import type { AwesomePlaceDataResponse } from '@/models/awesome-place.model';
 
 export async function getAwesomePlaceList(): Promise<AwesomePlaceDataResponse> {
   return fetch(
-    'https://nomadlist.com/static/filter/filter-770b8ee1397249ec869a3736646c21fa.json'
+    'https://nomadlist.com/static/filter/filter-0b4048d8e365f1873d2fb0b15a29b14c.json'
   ).then((response) => response.json());
 }
 

@@ -1,14 +1,12 @@
-import data from '__mocks__/data/data.json';
+import cost from '__mocks__/data/cost.json';
 
 import CardCity from '@/components/CardCity';
 import { Meta } from '@/layouts/Meta';
-import type {
-  AwesomePlaceDataResponse,
-  CitiesInterface,
-} from '@/models/awesome-place.model';
+import type { CitiesInterface } from '@/models/awesome-place.model';
+import type { AwesomePlacesState } from '@/store/slices';
 import { Main } from '@/templates/Main';
 
-const Cost = (props: AwesomePlaceDataResponse) => {
+const Cost = (props: AwesomePlacesState) => {
   return (
     <Main
       meta={
@@ -19,7 +17,7 @@ const Cost = (props: AwesomePlaceDataResponse) => {
       }
     >
       <ul className="container mx-auto flex w-full flex-wrap gap-3 lg:w-4/5">
-        {props?.cities
+        {props?.cost
           ?.sort((a, b) => b.cost_score - a.cost_score)
           .slice(0, 10)
           .map((city: CitiesInterface) => (
@@ -31,7 +29,7 @@ const Cost = (props: AwesomePlaceDataResponse) => {
 };
 
 export async function getServerSideProps() {
-  return { props: { ...data } };
+  return { props: { cost } };
 }
 
 export default Cost;

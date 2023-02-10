@@ -1,21 +1,20 @@
-import data from '__mocks__/data/data.json';
+import overall from '__mocks__/data/overall.json';
 import { useSelector } from 'react-redux';
 
 import CardCity from '@/components/CardCity';
 import { Meta } from '@/layouts/Meta';
-import type {
-  AwesomePlaceDataResponse,
-  CitiesInterface,
-} from '@/models/awesome-place.model';
+import type { CitiesInterface } from '@/models/awesome-place.model';
+import type { AwesomePlacesState } from '@/store/slices';
 import {
-  selectAwesomePlacesState,
-  setAwesomePlacesState,
+  selectAwesomePlacesOverall,
+  setAwesomePlacesOverall,
 } from '@/store/slices';
 import { wrapper } from '@/store/store';
 import { Main } from '@/templates/Main';
 
-const Index = (props: AwesomePlaceDataResponse) => {
-  const state = useSelector(selectAwesomePlacesState) || props;
+const Index = (props: AwesomePlacesState) => {
+  const overral = useSelector(selectAwesomePlacesOverall);
+  console.log(overral);
   return (
     <Main
       meta={
@@ -26,7 +25,7 @@ const Index = (props: AwesomePlaceDataResponse) => {
       }
     >
       <ul className="container mx-auto flex w-full flex-wrap gap-3 lg:w-4/5">
-        {state?.cities?.slice(0, 10).map((city: CitiesInterface) => (
+        {props?.overall?.slice(0, 10).map((city: CitiesInterface) => (
           <CardCity key={city.slug} city={city}></CardCity>
         ))}
       </ul>
@@ -40,9 +39,12 @@ const Index = (props: AwesomePlaceDataResponse) => {
 
 export const getServerSideProps = wrapper.getServerSideProps((store: any) => {
   return async () => {
-    // @ts-ignore
-    await store.dispatch(setAwesomePlacesState(data));
-    return { props: { data: null } };
+    console.log(store.getState().awesomePlaces.overall.length);
+    if (!store.getState().awesomePlaces.overall.length) {
+      // @ts-ignore
+      await store.dispatch(setAwesomePlacesOverall(overall));
+    }
+    return { props: { overall } };
   };
 });
 
