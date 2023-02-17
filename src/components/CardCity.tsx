@@ -28,7 +28,7 @@ const CardCity = (props: { city: CitiesInterface }) => {
             className="text-sm font-semibold italic text-white"
             style={reviewStyles}
           >
-            {`"${city.descriptionFromReview}"`}
+            {`"${city.descriptionFromReview || 'No reviews for this place'}"`}
           </p>
         </div>
 
